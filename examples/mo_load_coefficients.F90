@@ -22,7 +22,7 @@ module mo_load_coefficients
   !
   use mo_rte_kind,           only: wp
   use mo_gas_concentrations, only: ty_gas_concs
-  use mo_gas_optics,         only: ty_gas_optics
+  use mo_rrtmgp_gas_optics,  only: ty_gas_optics
   ! --------------------------------------------------
   use mo_simple_netcdf, only: read_field, read_char_vec, read_logical_vec, var_exists, get_dim_size
   use netcdf
