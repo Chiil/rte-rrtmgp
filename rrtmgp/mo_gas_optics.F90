@@ -24,8 +24,12 @@ module mo_gas_optics
     ! Deferred procedures -- each must be implemented in each child class with
     !   arguments following the abstract interface (defined below)
     !
-    procedure(gas_optics_int_abstract), deferred, private  :: gas_optics_int
-    procedure(gas_optics_ext_abstract), deferred, private  :: gas_optics_ext
+    ! gas_optics_int and gas_optics_ext should be declared private in concrete classes
+    !    but need to be visible in the abstract type or the interfaces won't be inherited
+    ! See https://software.intel.com/en-us/forums/intel-fortran-compiler-for-linux-and-mac-os-x/topic/681705
+    !
+    procedure(gas_optics_int_abstract), deferred  :: gas_optics_int
+    procedure(gas_optics_ext_abstract), deferred  :: gas_optics_ext
 
     procedure(logical_abstract), deferred, public :: source_is_internal
     procedure(logical_abstract), deferred, public :: source_is_external
