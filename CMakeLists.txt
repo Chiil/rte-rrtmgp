@@ -12,6 +12,15 @@ if(NOT SYST)
 endif()
 include(${SYST} OPTIONAL RESULT_VARIABLE SYSTINC)
 
+# Set the precision of the build.
+if(OPENACC)
+  message(STATUS "Using OpenACC kernels")
+  # Add some action...
+else()
+  message(STATUS "Using default kernels")
+endif()
+
+
 # Trigger fatal error if illegal module is loaded.
 if(${SYSTINC} STREQUAL "NOTFOUND")
   message(FATAL_ERROR "Config file config/" ${SYST} ".cmake does not exist.")
